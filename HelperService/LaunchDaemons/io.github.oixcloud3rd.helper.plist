@@ -3,29 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-<<<<<<<< HEAD:HelperService/LaunchDaemons/io.github.oixcloud3rd.helper.plist
 	<string>io.github.oixcloud3rd.helper</string>
-========
-	<string>io.github.oixcloud3rd.helper</string>
->>>>>>>> 51bd576 (Update Apple application identifiers):HelperService/LaunchDaemons/io.github.oixcloud3rd.helper.plist
 	<key>BundleProgram</key>
 	<string>Contents/Helpers/RootHelper</string>
 	<key>MachServices</key>
 	<dict>
-<<<<<<<< HEAD:HelperService/LaunchDaemons/io.github.oixcloud3rd.helper.plist
 		<key>P8XK3KHB48.io.github.oixcloud3rd.helper</key>
-========
-		<key>287TTNZF8L.io.github.oixcloud3rd.helper</key>
->>>>>>>> 51bd576 (Update Apple application identifiers):HelperService/LaunchDaemons/io.github.oixcloud3rd.helper.plist
 		<true/>
 	</dict>
 	<key>AssociatedBundleIdentifiers</key>
 	<array>
-<<<<<<<< HEAD:HelperService/LaunchDaemons/io.github.oixcloud3rd.helper.plist
 		<string>io.github.oixcloud3rd.standalone</string>
-========
-		<string>io.github.oixcloud3rd.standalone</string>
->>>>>>>> 51bd576 (Update Apple application identifiers):HelperService/LaunchDaemons/io.github.oixcloud3rd.helper.plist
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

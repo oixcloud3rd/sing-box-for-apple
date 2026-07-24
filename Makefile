@@ -4,7 +4,7 @@ SHELL := /bin/bash
 
 APPLICATION_SIGN_IDENTITY := 34EED4C8F8E609CD5D253D88202A071521D1BE74
 INSTALLER_SIGN_IDENTITY := 21E03A44ACC2B48753BABB3DAE9B5F9A9CFF0480
-XCODEBUILD_FLAGS ?= -skipPackagePluginValidation
+XCODEBUILD_FLAGS ?=
 export DISABLE_SWIFTLINT := 1
 
 build_all: build_ios build_macos build_tvos
@@ -58,15 +58,15 @@ release_macos_standalone: release_macos_dmg release_macos_pkg
 # Archive commands
 archive_macos_standalone_apple:
 	rm -rf build/SFM.System-arm64.xcarchive
-	xcodebuild archive $(XCODEBUILD_FLAGS) -scheme SFM.System -configuration Release -archivePath build/SFM.System-arm64.xcarchive -derivedDataPath build/SFM.System-arm64.dd ARCHS=arm64 | xcbeautify
+	xcodebuild archive $(XCODEBUILD_FLAGS) -scheme SFM.System -configuration Release -archivePath build/SFM.System-arm64.xcarchive -derivedDataPath build/SFM.System-arm64.dd ARCHS=arm64 | xcbeautify | grep -A 10 -e "Archive Succeeded" -e "ARCHIVE FAILED" -e "❌"
 
 archive_macos_standalone_intel:
 	rm -rf build/SFM.System-x86_64.xcarchive
-	xcodebuild archive $(XCODEBUILD_FLAGS) -scheme SFM.System -configuration Release -archivePath build/SFM.System-x86_64.xcarchive -derivedDataPath build/SFM.System-x86_64.dd ARCHS=x86_64 | xcbeautify
+	xcodebuild archive $(XCODEBUILD_FLAGS) -scheme SFM.System -configuration Release -archivePath build/SFM.System-x86_64.xcarchive -derivedDataPath build/SFM.System-x86_64.dd ARCHS=x86_64 | xcbeautify | grep -A 10 -e "Archive Succeeded" -e "ARCHIVE FAILED" -e "❌"
 
 archive_macos_standalone_universal:
 	rm -rf build/SFM.System-universal.xcarchive
-	xcodebuild archive $(XCODEBUILD_FLAGS) -scheme SFM.System -configuration Release -archivePath build/SFM.System-universal.xcarchive -derivedDataPath build/SFM.System-universal.dd | xcbeautify
+	xcodebuild archive $(XCODEBUILD_FLAGS) -scheme SFM.System -configuration Release -archivePath build/SFM.System-universal.xcarchive -derivedDataPath build/SFM.System-universal.dd | xcbeautify | grep -A 10 -e "Archive Succeeded" -e "ARCHIVE FAILED" -e "❌"
 
 archive_macos_standalone: archive_macos_standalone_apple archive_macos_standalone_intel archive_macos_standalone_universal
 
@@ -141,11 +141,11 @@ release_macos_dmg_universal: build_macos_dmg_universal notarize_macos_dmg_univer
 release_macos_dmg: release_macos_dmg_apple release_macos_dmg_intel release_macos_dmg_universal
 
 # PKG commands
-build_macos_pkg_apple: archive_macos_standalone_apple export_macos_standalone_apple
+build_macos_pkg_apple: archive_macos_standalone_apple
 	rm -f build/SFM-Apple.pkg
 	rm -rf build/pkgroot-arm64
 	mkdir -p build/pkgroot-arm64
-	ditto "build/SFM.System-arm64/SFM.app" "build/pkgroot-arm64/SFM.app"
+	ditto "build/SFM.System-arm64.xcarchive/Products/Applications/SFM.app" "build/pkgroot-arm64/SFM.app"
 	pkgbuild --root "build/pkgroot-arm64" \
 		--component-plist SFM.System/component.plist \
 		--identifier io.github.oixcloud3rd.standalone \
@@ -156,16 +156,15 @@ build_macos_pkg_apple: archive_macos_standalone_apple export_macos_standalone_ap
 	productbuild --distribution SFM.System/distribution-arm64.xml \
 		--package-path build \
 		--resources SFM.System/Resources \
-		--sign "$(INSTALLER_SIGN_IDENTITY)" \
 		build/SFM-Apple.pkg
 	rm -rf build/pkgroot-arm64
 	rm -f build/component-arm64.pkg
 
-build_macos_pkg_intel: archive_macos_standalone_intel export_macos_standalone_intel
+build_macos_pkg_intel: archive_macos_standalone_intel
 	rm -f build/SFM-Intel.pkg
 	rm -rf build/pkgroot-x86_64
 	mkdir -p build/pkgroot-x86_64
-	ditto "build/SFM.System-x86_64/SFM.app" "build/pkgroot-x86_64/SFM.app"
+	ditto "build/SFM.System-x86_64.xcarchive/Products/Applications/SFM.app" "build/pkgroot-x86_64/SFM.app"
 	pkgbuild --root "build/pkgroot-x86_64" \
 		--component-plist SFM.System/component.plist \
 		--identifier io.github.oixcloud3rd.standalone \
@@ -176,16 +175,15 @@ build_macos_pkg_intel: archive_macos_standalone_intel export_macos_standalone_in
 	productbuild --distribution SFM.System/distribution-x86_64.xml \
 		--package-path build \
 		--resources SFM.System/Resources \
-		--sign "$(INSTALLER_SIGN_IDENTITY)" \
 		build/SFM-Intel.pkg
 	rm -rf build/pkgroot-x86_64
 	rm -f build/component-x86_64.pkg
 
-build_macos_pkg_universal: archive_macos_standalone_universal export_macos_standalone_universal
+build_macos_pkg_universal: archive_macos_standalone_universal
 	rm -f build/SFM-Universal.pkg
 	rm -rf build/pkgroot-universal
 	mkdir -p build/pkgroot-universal
-	ditto "build/SFM.System-universal/SFM.app" "build/pkgroot-universal/SFM.app"
+	ditto "build/SFM.System-universal.xcarchive/Products/Applications/SFM.app" "build/pkgroot-universal/SFM.app"
 	pkgbuild --root "build/pkgroot-universal" \
 		--component-plist SFM.System/component.plist \
 		--identifier io.github.oixcloud3rd.standalone \
@@ -196,7 +194,6 @@ build_macos_pkg_universal: archive_macos_standalone_universal export_macos_stand
 	productbuild --distribution SFM.System/distribution-universal.xml \
 		--package-path build \
 		--resources SFM.System/Resources \
-		--sign "$(INSTALLER_SIGN_IDENTITY)" \
 		build/SFM-Universal.pkg
 	rm -rf build/pkgroot-universal
 	rm -f build/component-universal.pkg
