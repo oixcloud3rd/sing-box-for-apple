@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>io.github.oixcloud3rd.helper</string>
+	<string>io.github.oixcloud3rd.sfa.helper</string>
 	<key>BundleProgram</key>
 	<string>Contents/Helpers/RootHelper</string>
 	<key>MachServices</key>
 	<dict>
-		<key>P8XK3KHB48.io.github.oixcloud3rd.helper</key>
+		<key>P8XK3KHB48.io.github.oixcloud3rd.sfa.helper</key>
 		<true/>
 	</dict>
 	<key>AssociatedBundleIdentifiers</key>
 	<array>
-		<string>io.github.oixcloud3rd.standalone</string>
+		<string>io.github.oixcloud3rd.sfa.standalone</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

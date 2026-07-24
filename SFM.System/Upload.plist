@@ -10,9 +10,9 @@
 	<true/>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>io.github.oixcloud3rd.standalone</key>
+		<key>io.github.oixcloud3rd.sfa.standalone</key>
 		<string>XC io nekohasekai sfamt standalone</string>
-		<key>io.github.oixcloud3rd.system</key>
+		<key>io.github.oixcloud3rd.sfa.system</key>
 		<string>XC io nekohasekai sfamt system</string>
 	</dict>
 </dict>
