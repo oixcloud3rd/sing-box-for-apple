@@ -3,7 +3,7 @@ import Foundation
 import Libbox
 
 public enum GitHubUpdateChecker {
-    private static let releasesURL = "https://api.github.com/repos/SagerNet/sing-box/releases"
+    private static let releasesURL = "https://api.github.com/repos/oixcloud3rd/sing-box/releases"
     private static let minimumSemver = "0.0.0-0"
 
     public static func checkAsync(track: UpdateTrack, githubToken: String = "", force: Bool = false) async throws -> UpdateInfo? {
