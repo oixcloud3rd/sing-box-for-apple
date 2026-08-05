@@ -3,7 +3,7 @@ import Foundation
 import Libbox
 
 public enum GitHubUpdateChecker {
-    private static let releasesURL = "https://api.github.com/repos/SagerNet/sing-box/releases"
+    private static let releasesURL = "https://api.github.com/repos/oixcloud3rd/sing-box/releases"
     private static let releasesPerPage = 100
     private static let minimumSemver = "0.0.0-0"
 

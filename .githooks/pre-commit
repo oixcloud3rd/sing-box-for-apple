@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+
+repository_root="$(git rev-parse --show-toplevel)"
+bash "${repository_root}/Scripts/check_team_ids.sh" --cached

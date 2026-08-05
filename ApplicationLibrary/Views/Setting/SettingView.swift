@@ -202,13 +202,13 @@ public struct SettingView: View {
                             Text("Configuration")
                         }
                     }
-                    Link(destination: URL(string: String("https://github.com/SagerNet/sing-box"))!) {
+                    Link(destination: URL(string: String("https://github.com/oixcloud3rd/sing-box"))!) {
                         Label("Source Code", systemImage: "pills.fill")
                     }
                     .buttonStyle(.plain)
                     .foregroundColor(.accentColor)
                     .contextMenu {
-                        Link(destination: URL(string: String("https://github.com/SagerNet/sing-box/releases"))!) {
+                        Link(destination: URL(string: String("https://github.com/oixcloud3rd/sing-box/releases"))!) {
                             Text("Releases")
                         }
                     }

@@ -1,0 +1,4 @@
+// Copy this file to Signing.xcconfig and replace the example value.
+// GitHub Actions can generate Signing.xcconfig from a repository secret.
+// Example: printf 'DEVELOPMENT_TEAM = %s\n' "$APPLE_TEAM_ID" > Configuration/Signing.xcconfig
+DEVELOPMENT_TEAM = TEAMID0000

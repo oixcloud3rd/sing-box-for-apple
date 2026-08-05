@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>io.nekohasekai.sfajb.helper</string>
+	<string>com.akinokaede.oixcloud3rd.sfajb.helper</string>
 	<key>Program</key>
 	<string>/var/jb/usr/libexec/sfajb-roothelper</string>
 	<key>MachServices</key>
 	<dict>
-		<key>group.io.nekohasekai.sfajb.helper</key>
+		<key>group.com.akinokaede.oixcloud3rd.sfajb.helper</key>
 		<true/>
 	</dict>
 	<key>RunAtLoad</key>

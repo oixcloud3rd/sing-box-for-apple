@@ -1,0 +1,3 @@
+// Shared signing configuration. Local and CI values override the empty default.
+DEVELOPMENT_TEAM =
+#include? "Signing.xcconfig"
