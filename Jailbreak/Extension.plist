@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>P8XK3KHB48.io.nekohasekai.sfajb.extension</string>
+	<string>TEAMID0000.com.akinokaede.oixcloud3rd.sfajb.extension</string>
 	<key>com.apple.developer.team-identifier</key>
-	<string>P8XK3KHB48</string>
+	<string>TEAMID0000</string>
 	<key>com.apple.developer.networking.networkextension</key>
 	<array>
 		<string>packet-tunnel-provider</string>
@@ -16,11 +16,11 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.io.nekohasekai.sfajb</string>
+		<string>group.com.akinokaede.oixcloud3rd.sfajb</string>
 	</array>
 	<key>com.apple.security.exception.mach-lookup.global-name</key>
 	<array>
-		<string>group.io.nekohasekai.sfajb.helper</string>
+		<string>group.com.akinokaede.oixcloud3rd.sfajb.helper</string>
 	</array>
 	<key>get-task-allow</key>
 	<false/>

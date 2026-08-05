@@ -4,6 +4,7 @@ xcuserdata/
 .DS_Store
 /build/
 /sing-box.xcodeproj/project.pbxproj.back
+/Configuration/Signing.xcconfig
 CLAUDE.md
 /.claude/
 /.mcp.json

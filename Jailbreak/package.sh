@@ -10,7 +10,7 @@ need ldid "brew install ldid"
 need dpkg-deb "brew install dpkg"
 [[ -x /usr/libexec/PlistBuddy ]] || { echo "error: /usr/libexec/PlistBuddy missing" >&2; exit 1; }
 
-BASE_PACKAGE_IDENTIFIER="io.nekohasekai.sfajb"
+BASE_PACKAGE_IDENTIFIER="com.akinokaede.oixcloud3rd.sfajb"
 APP_DISPLAY_NAME="sing-box JB"
 PRODUCT_NAME="sing-box"
 DERIVED_DATA="$REPO_ROOT/build/jailbreak/DerivedData"
@@ -18,7 +18,7 @@ APP_SRC="$DERIVED_DATA/Build/Products/Release-iphoneos/$PRODUCT_NAME.app"
 DEB_ROOT="$REPO_ROOT/build/jailbreak/debroot"
 ENT="$REPO_ROOT/Jailbreak"
 DAEMON_BIN="$DERIVED_DATA/Build/Products/Release-iphoneos/sfajb-roothelper"
-HELPER_PLIST="io.nekohasekai.sfajb.helper.plist"
+HELPER_PLIST="com.akinokaede.oixcloud3rd.sfajb.helper.plist"
 XCODEBUILD_FLAGS=()
 if [[ -n "${XCODEBUILD_CLONED_SOURCE_PACKAGES_DIR_PATH:-}" ]]; then
 	XCODEBUILD_FLAGS=(-clonedSourcePackagesDirPath "$XCODEBUILD_CLONED_SOURCE_PACKAGES_DIR_PATH")
@@ -159,8 +159,8 @@ Version: $DEB_VERSION
 Architecture: iphoneos-arm64
 Installed-Size: $INSTALLED_SIZE
 Description: The universal proxy platform.
-Maintainer: nekohasekai
-Author: nekohasekai
+Maintainer: oixcloud3rd
+Author: oixcloud3rd
 Section: Applications
 Depends: firmware (>= 15.0)
 EOF

@@ -2,7 +2,7 @@ import Foundation
 
 public enum BlockingIO {
     private static let queue = DispatchQueue(
-        label: "io.nekohasekai.sing-box.blocking-io",
+        label: "com.akinokaede.sing-box.blocking-io",
         qos: .userInitiated,
         attributes: .concurrent
     )
